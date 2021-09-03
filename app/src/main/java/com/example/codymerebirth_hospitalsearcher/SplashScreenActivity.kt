@@ -14,7 +14,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
             {
 
-                val intent = Intent(this, SelectAlgorithmActivity::class.java)
+                val intent = Intent(this, MainMenuActivity::class.java)
                 startActivity(intent)
                 finish()
 
