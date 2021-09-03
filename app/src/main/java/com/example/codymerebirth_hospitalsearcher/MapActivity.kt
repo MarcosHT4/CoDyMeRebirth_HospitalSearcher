@@ -13,8 +13,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var map: GoogleMap
     private lateinit var mapBinding: ActivityMapBinding
-    val h1 = Hospital("Hospital GG EZ", LatLng(-16.50703525, -68.1186046495648), null)
-    val h2 = Hospital("Hospital GG NO TEAM", LatLng(-15.50703525, -67.1186046495648), null)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,18 +29,28 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(p0: GoogleMap) {
         map = p0
-
-        addMarker(h1)
-        addMarker(h2)
-        lineBetweenTwoHospitals(h1, h2)
+        lineBetweenHospitals(h1)
     }
 
     private fun addMarker(hospital: Hospital) {
         map.addMarker(MarkerOptions().position(hospital.coordinates).title(hospital.name))
     }
 
-    private fun lineBetweenTwoHospitals(hospital1: Hospital, hospital2: Hospital){
-        map.addPolyline(PolylineOptions().add(hospital1.coordinates).add(hospital2.coordinates).color(Color.RED))
+    private fun lineBetweenHospitals(hospital1: Hospital){
+        addMarker(h1)
+        hospital1.neighbors?.forEach {
+            addMarker(it)
+            map.addPolyline(PolylineOptions().add(hospital1.coordinates).add(it.coordinates).color(Color.RED))
+        }
     }
 
 }
+
+val neighbors: List<Hospital> = listOf(
+    Hospital("Clinic", LatLng(-15.50703525, -67.1186046495648)),
+    Hospital("Hospital General", LatLng(-14.50703525, -67.3006046495648)),
+    Hospital("Hospital ArcoIris", LatLng(-15.50703525, -66.1186046495648)),
+    Hospital("Hospital AntiVac", LatLng(10.50703525, 66.1186046495648)),
+)
+
+val h1 = Hospital("Hospital GG EZ", LatLng(-16.50703525, -68.1186046495648), neighbors)
