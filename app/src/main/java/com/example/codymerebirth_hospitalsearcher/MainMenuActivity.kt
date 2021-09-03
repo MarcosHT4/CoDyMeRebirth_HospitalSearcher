@@ -1,6 +1,7 @@
 package com.example.codymerebirth_hospitalsearcher
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
@@ -27,10 +28,16 @@ class MainMenuActivity : AppCompatActivity() {
 
         buttonTutorial?.setOnClickListener{
 
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=kS5mMg2uyHA"))
+            startActivity(intent)
+
 
         }
 
         buttonExamples?.setOnClickListener{
+
+            val intent = Intent(this, ExampleSelectionActivity::class.java)
+            startActivity(intent)
 
 
         }
