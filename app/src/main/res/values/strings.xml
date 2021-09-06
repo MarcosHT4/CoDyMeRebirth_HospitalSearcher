@@ -1,3 +1,52 @@
 <resources>
     <string name="app_name">CoDyMeRebirth_HospitalSearcher</string>
+    <string-array name="southAmerica">
+        <item>Sucre</item>
+        <item>Asuncion</item>
+        <item>Montevideo</item>
+        <item>Brasilia</item>
+        <item>Buenos Aires</item>
+        <item>Santiago</item>
+        <item>Lima</item>
+        <item>Quito</item>
+        <item>Bogota</item>
+        <item>Caracas</item>
+        <item>Georgetown</item>
+        <item>Paramaribo</item>
+        <item>Cayena</item>
+    </string-array>
+
+    <string-array name="eastEurope">
+        <item>Moscu</item>
+        <item>Helsinki</item>
+        <item>Oslo</item>
+        <item>Estocolmo</item>
+        <item>Minsk</item>
+        <item>Varsovia</item>
+        <item>Berlin</item>
+        <item>Praga</item>
+        <item>Bratislava</item>
+        <item>Kiev</item>
+        <item>Budapest</item>
+        <item>Tiflis</item>
+        <item>Chisinau</item>
+        <item>Atenas</item>
+        <item>Erevan</item>
+        <item>Ankara</item>
+    </string-array>
+
+    <string-array name="westEurope">
+        <item>Lisboa</item>
+        <item>Madrid</item>
+        <item>Paris</item>
+        <item>Berna</item>
+        <item>Viena</item>
+        <item>Bruselas</item>
+        <item>Amsterdam</item>
+        <item>Roma</item>
+        <item>Luxemburgo</item>
+        <item>Andorra La Vella</item>
+        <item>Londres</item>
+        <item>Dublin</item>
+    </string-array>
 </resources>
