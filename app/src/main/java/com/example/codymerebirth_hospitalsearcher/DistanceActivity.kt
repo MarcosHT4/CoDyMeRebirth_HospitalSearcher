@@ -3,16 +3,29 @@ package com.example.codymerebirth_hospitalsearcher
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import com.example.codymerebirth_hospitalsearcher.databinding.ActivityDistanceBinding
 
 class DistanceActivity : AppCompatActivity() {
 
     private lateinit var distanceBinding: ActivityDistanceBinding
+    private lateinit var pruebaTextView:TextView
+    private lateinit var prueba2TextView:TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         distanceBinding = ActivityDistanceBinding.inflate(layoutInflater)
         setContentView(distanceBinding.root)
+
+        pruebaTextView = findViewById(R.id.textView12)
+        prueba2TextView = findViewById(R.id.destino)
+
+        var startPoint = intent.getIntExtra("startPoint", 0)
+        var finishPoint = intent.getIntExtra("finishPoint", 0)
+
+        pruebaTextView.text = startPoint.toString()
+        prueba2TextView.text = finishPoint.toString()
+
 
         distanceBinding.verMapaButton.setOnClickListener {
             val intent = Intent(this, MapActivity::class.java)
