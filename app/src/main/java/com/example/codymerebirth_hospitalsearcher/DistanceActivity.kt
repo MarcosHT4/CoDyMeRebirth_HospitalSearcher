@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.codymerebirth_hospitalsearcher.databinding.ActivityDistanceBinding
+import com.google.android.gms.maps.model.LatLng
 
 class DistanceActivity : AppCompatActivity() {
 
@@ -14,15 +15,19 @@ class DistanceActivity : AppCompatActivity() {
         distanceBinding = ActivityDistanceBinding.inflate(layoutInflater)
         setContentView(distanceBinding.root)
 
+        val continente = intent.getIntExtra("continent", 0)
+        val startPoint = intent.getIntExtra("startPoint", 0)
+        val finishPoint = intent.getIntExtra("finishPoint", 0)
+
+
         distanceBinding.verMapaButton.setOnClickListener {
             val intent = Intent(this, MapActivity::class.java)
             // TODO se debe enviar una lista con los hospitales que conforman el camino
             //intent.putExtra(path: List<Hospital>)
             startActivity(intent)
         }
-
-        //TODO aqui se llama al metodo con los datos que se reciben del anterior activity y el algoritmo seleccionado
-        //upgradePath()
+        //Aqui va el dijstra o el brow-warshal xd
+        //upgradePath(latamHospitals[startPoint]!!, latamHospitals[finishPoint]!!, Distancia obtenida con dijkstra )
     }
 
 
@@ -31,4 +36,88 @@ class DistanceActivity : AppCompatActivity() {
         distanceBinding.destino.text = destino.name
         distanceBinding.distanciaMinima.text = distancia.toString()
     }
+    fun createDistances(continente: Int){
+        when(continente){
+            1 -> {
+                addEdge(9, 8, 1400)
+                addEdge(8,7,1103)
+                addEdge(7, 6, 1802)
+                addEdge(6, 0, 2033)
+                addEdge(0, 1, 1427)
+                addEdge(1, 2, 1344)
+                addEdge(6, 5, 3286)
+                addEdge(5, 4, 1407)
+                addEdge(4, 2, 593)
+                addEdge(2, 3, 2903)
+                addEdge(3, 10, 2755)
+                addEdge(10, 11, 444)
+                addEdge(11, 12, 336)
+            } 2 -> {
+                addEdge(0,1,1090)
+                addEdge(1,2,978)
+                addEdge(1,3,484)
+                addEdge(3,4,959)
+                addEdge(4,5,550)
+                addEdge(5,6,572)
+                addEdge(5,7,688)
+                addEdge(5,8,662)
+                addEdge(4,9,526)
+                addEdge(9,10,1847)
+                addEdge(9,12,472)
+                addEdge(9,11,1848)
+                addEdge(10,13,1469)
+                addEdge(10,11,2964)
+                addEdge(11,12,1854)
+                addEdge(11,14,276)
+                addEdge(14,15,1398)
+            } 3 -> {
+                addEdge(11, 10, 464)
+                addEdge(0,1, 623)
+                addEdge(1,9, 609)
+                addEdge(1,2, 1271)
+                addEdge(2, 7, 1420)
+                addEdge(2, 3, 582)
+                addEdge(3,4,  839)
+                addEdge(2, 8, 373)
+                addEdge(2, 5, 313)
+                addEdge(5, 6, 210)
+            }
+        }
+    }
+
+    fun addEdge(origen: Int, destino: Int, distancia: Int){
+        latamGrafo[origen][destino] = distancia
+        latamGrafo[destino][origen] = distancia
+    }
 }
+
+val hospitalSucre = Hospital("Hospital Santa Barbara", 0, LatLng(-19.044638688080493, -65.26289977359298))
+val hospitalCaracas = Hospital("Hospital de Clinicas Caracas", 9, LatLng(10.510392244048777, -66.89886880000002))
+val hospitalBuenosAires = Hospital("Hospital Italiano de Buenos Aires", 4, LatLng(-34.60615526599895, -58.42587738679744))
+val hospitalBogota = Hospital("Hospital Universitario Nacional de Colombia", 8, LatLng(4.648851154530483, -74.0958786891307))
+val hospitalQuito = Hospital("Hospital Vozandes Quito", 7, LatLng(-0.17266468170644111, -78.48944501611999))
+val hospitalLima = Hospital("Hospital Nacional Arzobispo Loayza", 6, LatLng(-12.049894835206626, -77.04329160256935))
+val hospitalAsuncion = Hospital("Hospital Universitario Ntra. Sra. de Asunción", 1, LatLng(-25.29245087720329, -57.56199163305948))
+val hospitalSantiago = Hospital("Hospital Dr. Luis Tisné Brousse", 5, LatLng(-33.50062824284426, -70.57905180031733))
+val hospitalMontevideo = Hospital("Hospital Británico de Montevideo", 2, LatLng(-34.894289082319425, -56.16285437329951))
+val hospitalBrasilia = Hospital("Hospital Alvorada Brasilia", 3, LatLng(-15.813129246960239, -47.91250150252596))
+val hospitalGeorgetown = Hospital("Georgetown Public Hospital Corporation", 10, LatLng(6.815718116762575, -58.157052933055304))
+val hospitalParamaribo = Hospital("Academic Hospital Paramaribo", 11, LatLng(5.836922274316439, -55.18308396028875))
+val hospitalCayena = Hospital("Centro Hospitalario Andrée-Rosemon", 12, LatLng(4.923919567336988, -52.320488600763234))
+
+val latamHospitals: HashMap<Int, Hospital> = hashMapOf(
+    0 to hospitalSucre,
+    1 to hospitalAsuncion,
+    2 to hospitalMontevideo,
+    3 to hospitalBrasilia,
+    4 to hospitalBuenosAires,
+    5 to hospitalSantiago,
+    6 to hospitalLima,
+    7 to hospitalQuito,
+    8 to hospitalBogota,
+    9 to hospitalCaracas,
+    10 to hospitalGeorgetown,
+    11 to hospitalParamaribo,
+    12 to hospitalCayena
+)
+val latamGrafo = Array(20){ Array(20) { 0 } }
