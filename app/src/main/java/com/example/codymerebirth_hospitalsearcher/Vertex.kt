@@ -1,22 +1,29 @@
 package com.example.codymerebirth_hospitalsearcher
 
-class Vertex (val name: String) : Comparable<Vertex> {
+class Vertex (val name: Int) : Comparable<Vertex> {
 
     var dist = Int.MAX_VALUE
     var previous: Vertex? = null
     val neighbours = HashMap<Vertex, Int>()
 
-    fun printPath() {
+
+    fun printPath():Int {
+
+        var totalDist:Int = 0
         if (this == previous) {
-            print(name)
+            return 0
         }
         else if (previous == null) {
-            print("$name(unreached)")
+            return 100000
         }
         else {
-            previous!!.printPath()
-            print(" -> $name($dist)")
+
+            totalDist+=previous!!.printPath()
+            totalDist+=dist
+
         }
+
+        return totalDist
     }
 
     override fun compareTo(other: Vertex): Int {

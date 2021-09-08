@@ -18,24 +18,39 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         mapBinding = ActivityMapBinding.inflate(layoutInflater)
         setContentView(mapBinding.root)
-        createMapFragment()
+        //createMapFragment()
 
     }
+
+
 
     private fun createMapFragment() {
         val mapFragment = supportFragmentManager.findFragmentById(R.id.mapFragment) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
+
+
+
+
+
     override fun onMapReady(p0: GoogleMap) {
         map = p0
-        lineBetweenHospitals(h1)
+
     }
+
+
+
 
     private fun addMarker(hospital: Hospital) {
         map.addMarker(MarkerOptions().position(hospital.coordinates).title(hospital.name))
     }
 
+
+
+
+
+/*
     private fun lineBetweenHospitals(hospital1: Hospital){
         addMarker(h1)
         hospital1.neighbors?.forEach {
@@ -44,8 +59,12 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    */
+
+
 }
 
+/*
 val neighbors: List<Hospital> = listOf(
     Hospital("Clinic", ,LatLng(-15.50703525, -67.1186046495648)),
     Hospital("Hospital General", ,LatLng(-14.50703525, -67.3006046495648)),
@@ -54,3 +73,4 @@ val neighbors: List<Hospital> = listOf(
 )
 
 val h1 = Hospital("Hospital GG EZ", ,LatLng(-16.50703525, -68.1186046495648), neighbors)
+*/

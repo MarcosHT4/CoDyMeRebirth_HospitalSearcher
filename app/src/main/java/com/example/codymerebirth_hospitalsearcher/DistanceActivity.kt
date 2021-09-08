@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.codymerebirth_hospitalsearcher.databinding.ActivityDistanceBinding
-import com.google.android.gms.common.api.Api
 import com.google.android.gms.maps.model.LatLng
 
 class DistanceActivity : AppCompatActivity() {
@@ -19,6 +18,8 @@ class DistanceActivity : AppCompatActivity() {
         val continente = intent.getIntExtra("continent", 0)
         val startPoint = intent.getIntExtra("startPoint", 0)
         val finishPoint = intent.getIntExtra("finishPoint", 0)
+        val isDijkstra = intent.getBooleanExtra("isDijkstra", true)
+        var totalDistance:Int = 0
 
 
         distanceBinding.verMapaButton.setOnClickListener {
@@ -29,6 +30,20 @@ class DistanceActivity : AppCompatActivity() {
         }
         //Aqui va el dijstra o el brow-warshal xd
         //upgradePath(latamHospitals[startPoint]!!, latamHospitals[finishPoint]!!, Distancia obtenida con dijkstra )
+
+        createDistances(continente)
+
+        if(isDijkstra) {
+
+            val dijskstra:Dijkstra = Dijkstra(grafoFloydWarshall, false, false)
+            dijskstra.dijkstra(startPoint)
+            totalDistance = dijskstra.printPath(finishPoint)
+
+        }
+
+        upgradePath(latamHospitals[startPoint]!!, latamHospitals[finishPoint]!!, totalDistance)
+
+
     }
 
 
@@ -39,7 +54,7 @@ class DistanceActivity : AppCompatActivity() {
     }
     fun createDistances(continente: Int){
         when(continente){
-            1 -> {
+            0 -> {
                 addEdge(9, 8, 1400)
                 addEdge(8,7,1103)
                 addEdge(7, 6, 1802)
@@ -53,7 +68,7 @@ class DistanceActivity : AppCompatActivity() {
                 addEdge(3, 10, 2755)
                 addEdge(10, 11, 444)
                 addEdge(11, 12, 336)
-            } 2 -> {
+            } 1 -> {
                 addEdge(0,1,1090)
                 addEdge(1,2,978)
                 addEdge(1,3,484)
@@ -71,7 +86,7 @@ class DistanceActivity : AppCompatActivity() {
                 addEdge(11,12,1854)
                 addEdge(11,14,276)
                 addEdge(14,15,1398)
-            } 3 -> {
+            } 2 -> {
                 addEdge(11, 10, 464)
                 addEdge(0,1, 623)
                 addEdge(1,9, 609)
@@ -86,9 +101,10 @@ class DistanceActivity : AppCompatActivity() {
         }
     }
 
+
     fun addEdge(origen: Int, destino: Int, distancia: Int){
-        latamGrafo[origen][destino] = distancia
-        latamGrafo[destino][origen] = distancia
+        grafoFloydWarshall[origen][destino] = distancia
+        grafoFloydWarshall[destino][origen] = distancia
     }
 }
 
@@ -196,4 +212,7 @@ val westEuropeHospital:HashMap<Int, Hospital> = hashMapOf(
     10 to hospitalLondres,
     11 to hospitalDublin
 )
-val latamGrafo = Array(20){ IntArray(20) { 0 } }
+
+
+
+val grafoFloydWarshall = Array(20){ IntArray(20) { 0 } }
