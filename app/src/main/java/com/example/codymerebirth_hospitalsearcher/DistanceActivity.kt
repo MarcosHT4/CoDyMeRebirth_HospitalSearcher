@@ -142,7 +142,7 @@ val hospitalBruselas = Hospital("Instituto Jules Bordet", 5, LatLng(50.833507672
 val hospitalAmsterdam = Hospital("OLVG, location Spuistraat", 6, LatLng(52.37118763534204, 4.889372025419725))
 val hospitalRoma = Hospital("Rome American Hospital", 7, LatLng(41.90003220640084, 12.602381055745447))
 val hospitalLuxemburgo = Hospital("Hospital materno Gran Duquesa Charlotte", 8, LatLng(49.617597294338694, 6.098589640663677))
-val hospitalAndorraLaBella = Hospital("Nostra Senyora de Meritxell Hospital", 9, LatLng(42.51145937049988, 1.5336092980918983))
+val hospitalAndorraLaVella = Hospital("Nostra Senyora de Meritxell Hospital", 9, LatLng(42.51145937049988, 1.5336092980918983))
 val hospitalLondres = Hospital("Royal London Hospital", 10, LatLng(51.517508455928564, -0.06000350159278706))
 val hospitalDublin = Hospital("Hospital materno nacional de Dublín", 11, LatLng(53.33990050330571, -6.245567788033456))
 
@@ -161,5 +161,39 @@ val latamHospitals: HashMap<Int, Hospital> = hashMapOf(
     10 to hospitalGeorgetown,
     11 to hospitalParamaribo,
     12 to hospitalCayena
+)
+
+val eastEuropeHospital:HashMap<Int, Hospital> = hashMapOf(
+    0 to hospitalMoscu,
+    1 to hospitalHelsinki,
+    2 to hospitalOslo,
+    3 to hospitalEstocolmo,
+    4 to hospitalMinsk,
+    5 to hospitalVarsovia,
+    6 to hospitalBerlin,
+    7 to hospitalPraga,
+    8 to hospitalBratislava,
+    9 to hospitalKiev,
+    10 to hospitalBudapest,
+    11 to hospitalTiflis,
+    12 to hospitalChisinau,
+    13 to hospitalAtenas,
+    14 to hospitalErevan,
+    15 to hospitalAnkara
+)
+
+val westEuropeHospital:HashMap<Int, Hospital> = hashMapOf(
+    0 to hospitalLisboa,
+    1 to hospitalMadrid,
+    2 to hospitalParis,
+    3 to hospitalBerna,
+    4 to hospitalViena,
+    5 to hospitalBruselas,
+    6 to hospitalAmsterdam,
+    7 to hospitalRoma,
+    8 to hospitalLuxemburgo,
+    9 to hospitalAndorraLaVella,
+    10 to hospitalLondres,
+    11 to hospitalDublin
 )
 val latamGrafo = Array(20){ IntArray(20) { 0 } }

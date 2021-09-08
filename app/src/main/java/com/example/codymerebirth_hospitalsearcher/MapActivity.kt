@@ -47,10 +47,10 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 }
 
 val neighbors: List<Hospital> = listOf(
-    Hospital("Clinic", LatLng(-15.50703525, -67.1186046495648)),
-    Hospital("Hospital General", LatLng(-14.50703525, -67.3006046495648)),
-    Hospital("Hospital ArcoIris", LatLng(-15.50703525, -66.1186046495648)),
-    Hospital("Hospital AntiVac", LatLng(10.50703525, 66.1186046495648)),
+    Hospital("Clinic", ,LatLng(-15.50703525, -67.1186046495648)),
+    Hospital("Hospital General", ,LatLng(-14.50703525, -67.3006046495648)),
+    Hospital("Hospital ArcoIris", ,LatLng(-15.50703525, -66.1186046495648)),
+    Hospital("Hospital AntiVac", ,LatLng(10.50703525, 66.1186046495648)),
 )
 
-val h1 = Hospital("Hospital GG EZ", LatLng(-16.50703525, -68.1186046495648), neighbors)
+val h1 = Hospital("Hospital GG EZ", ,LatLng(-16.50703525, -68.1186046495648), neighbors)

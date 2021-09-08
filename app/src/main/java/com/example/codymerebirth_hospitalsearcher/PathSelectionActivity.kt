@@ -147,18 +147,6 @@ class PathSelectionActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
     }
     fun init(){
         spinnerStartPoint = findViewById(R.id.spinnerStartPoint)
