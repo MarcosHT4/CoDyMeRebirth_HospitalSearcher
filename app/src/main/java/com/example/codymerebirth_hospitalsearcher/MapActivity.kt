@@ -15,6 +15,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var map: GoogleMap
     private lateinit var mapBinding: ActivityMapBinding
     private lateinit var path: ArrayList<Int>
+    var continent:Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +24,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         createMapFragment()
 
        path = intent.getIntegerArrayListExtra("listPath")!!
+        continent = intent.getIntExtra("continente",0)
 
 
     }
@@ -41,7 +43,12 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(p0: GoogleMap) {
         map = p0
-        drawPath(path)
+        when(continent){
+            0 -> drawPath(path, latamHospitals)
+            1 -> drawPath(path, eastEuropeHospital)
+            2 -> drawPath(path, westEuropeHospital)
+        }
+
     }
 
 
@@ -52,17 +59,17 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             BitmapDescriptorFactory.defaultMarker(color)))
     }
 
-    private fun drawPath(listPath: ArrayList<Int>){
-        addMarker(latamHospitals[listPath[0]]!!, BitmapDescriptorFactory.HUE_GREEN)
+    private fun drawPath(listPath: ArrayList<Int>, hospitals: HashMap<Int,Hospital>){
+        addMarker(hospitals[listPath[0]]!!, BitmapDescriptorFactory.HUE_GREEN)
         listPath.forEachIndexed { index, i ->
             if(index != 0) {
                 if(index != listPath.size-1) {
-                    addMarker(latamHospitals[i]!!, BitmapDescriptorFactory.HUE_RED)
+                    addMarker(hospitals[i]!!, BitmapDescriptorFactory.HUE_RED)
                 }
-                map.addPolyline(PolylineOptions().add(latamHospitals[i]!!.coordinates).add(latamHospitals[listPath[index-1]]!!.coordinates).color(Color.RED))
+                map.addPolyline(PolylineOptions().add(hospitals[i]!!.coordinates).add(hospitals[listPath[index-1]]!!.coordinates).color(Color.RED))
             }
         }
-        addMarker(latamHospitals[listPath[listPath.size-1]]!!, BitmapDescriptorFactory.HUE_BLUE)
+        addMarker(hospitals[listPath[listPath.size-1]]!!, BitmapDescriptorFactory.HUE_BLUE)
     }
 
 }

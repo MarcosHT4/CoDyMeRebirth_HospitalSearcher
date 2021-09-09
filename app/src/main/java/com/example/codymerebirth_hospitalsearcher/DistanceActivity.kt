@@ -28,6 +28,7 @@ class DistanceActivity : AppCompatActivity() {
         distanceBinding.verMapaButton.setOnClickListener {
             val intent = Intent(this, MapActivity::class.java)
             intent.putIntegerArrayListExtra("listPath", listPath)
+            intent.putExtra("continente" , continente)
             startActivity(intent)
         }
 
@@ -41,8 +42,11 @@ class DistanceActivity : AppCompatActivity() {
             listPath = dijskstra.path(finishPoint)
 
         }
-
-        upgradePath(latamHospitals[startPoint]!!, latamHospitals[finishPoint]!!, totalDistance)
+        when (continente) {
+            0-> upgradePath(latamHospitals[startPoint]!!, latamHospitals[finishPoint]!!, totalDistance)
+            1-> upgradePath(eastEuropeHospital[startPoint]!!, eastEuropeHospital[finishPoint]!!, totalDistance)
+            2-> upgradePath(westEuropeHospital[startPoint]!!, westEuropeHospital[finishPoint]!!, totalDistance)
+        }
 
 
     }
@@ -52,6 +56,7 @@ class DistanceActivity : AppCompatActivity() {
         distanceBinding.origen.text = origen.name
         distanceBinding.destino.text = destino.name
         distanceBinding.distanciaMinima.text = distancia.toString()
+
     }
     fun createDistances(continente: Int){
         when(continente){
@@ -150,7 +155,7 @@ val hospitalAnkara = Hospital("Memorial Ankara Hastanesi", 15, LatLng(40.0774135
 //Europa del Oeste
 
 
-val hospitalLisboa = Hospital("Centro Hospitalar Universitário de Lisboa Central - Hospital de São José", 0, LatLng(40.20806468626688, -9.19344756180251))
+val hospitalLisboa = Hospital("Centro Hospitalar Universitário de Lisboa Central - Hospital de São José", 0, LatLng(38.743740845318676, -9.148935812833871))
 val hospitalMadrid = Hospital("Hospital de La Princesa", 1, LatLng(41.13111378757351, -3.7657087665523745))
 val hospitalParis = Hospital("Lariboisière Hospital AP-HP", 2, LatLng(49.0242468937122, 2.236030216820476))
 val hospitalBerna = Hospital("Inselspital", 3, LatLng(46.94756056987751, 7.424605553960608))
