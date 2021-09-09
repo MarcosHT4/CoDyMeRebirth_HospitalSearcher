@@ -2,7 +2,7 @@ package com.example.codymerebirth_hospitalsearcher
 
 object FloydWarshall {
 
-    fun doCalcs(weights:Array<IntArray>, nVertices:Int) {
+    fun doCalcs(weights:Array<IntArray>, nVertices:Int, startPoint:Int, finishPoint:Int): Double {
 
         val dist = Array(nVertices) {
 
@@ -17,27 +17,16 @@ object FloydWarshall {
         for(w in weights) {
 
             dist[w[0]-1][w[1]-1] = w[2].toDouble()
-
         }
-
         val next = Array(nVertices) {
-
             IntArray(nVertices)
-
         }
-
         for(i in 0 until next.size) {
-
             for(j in 0 until next.size) {
-
                 if(i!=j) {
-
                     next[i][j] = j+1
-
                 }
-
             }
-
         }
 
         for(k in 0 until nVertices) {
@@ -58,49 +47,30 @@ object FloydWarshall {
             }
 
         }
-
-        printResult(dist, next)
-
-
-
-
+        var minDist:Double = printResult(dist, next, startPoint, finishPoint)
+        return minDist
     }
 
-    private fun printResult(dist: Array<DoubleArray>, next: Array<IntArray>) {
+    private fun printResult(dist: Array<DoubleArray>, next: Array<IntArray>, startPoint: Int, finishPoint: Int): Double {
 
         var u: Int
         var v: Int
         var path: String
         println("pair     dist    path")
-        for(i in 0 until next.size) {
+        for (i in 0 until next.size) {
 
-            for(j in 0 until next.size) {
+            for (j in 0 until next.size) {
 
-                if(i!=j) {
+                if (i != j) {
 
-                    u = i+1
-                    v = j+1
-
-                    path = ("%d -> %d    %2d     %s").format(u,v,dist[i][j].toInt(),u)
-
-                    do{
-
-                        u = next[u-1][v-1]
-                        path+= "->" + u
-
-                    } while(u!=v)
-
-                    print(path)
-
-
+                    u = i + 1
+                    v = j + 1
+                    if (u == startPoint && v == finishPoint) {
+                        return dist[i][j]
+                    }
                 }
-
             }
-
         }
-
-
-
+        return 0.0
     }
-
 }
