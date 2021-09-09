@@ -41,7 +41,15 @@ class DistanceActivity : AppCompatActivity() {
             totalDistance = dijskstra.minDistance(finishPoint)
             listPath = dijskstra.path(finishPoint)
 
+        } else {
+            when(continente){
+
+                0->totalDistance = FloydWarshall.doCalcs(grafoFloydWarshall,19, startPoint,finishPoint)
+                1->totalDistance = FloydWarshall.doCalcs(grafoFloydWarshall,16, startPoint, finishPoint)
+                2->totalDistance = FloydWarshall.doCalcs(grafoFloydWarshall,12, startPoint, finishPoint)
+            }
         }
+
         when (continente) {
             0-> upgradePath(latamHospitals[startPoint]!!, latamHospitals[finishPoint]!!, totalDistance)
             1-> upgradePath(eastEuropeHospital[startPoint]!!, eastEuropeHospital[finishPoint]!!, totalDistance)
@@ -75,35 +83,35 @@ class DistanceActivity : AppCompatActivity() {
                 addEdge(10, 11, 444)
                 addEdge(11, 12, 336)
             } 1 -> {
-                addEdge(0,1,1090)
-                addEdge(1,2,978)
-                addEdge(1,3,484)
-                addEdge(3,4,959)
-                addEdge(4,5,550)
-                addEdge(5,6,572)
-                addEdge(5,7,688)
-                addEdge(5,8,662)
-                addEdge(4,9,526)
-                addEdge(9,10,1847)
-                addEdge(9,12,472)
-                addEdge(9,11,1848)
-                addEdge(10,13,1469)
-                addEdge(10,11,2964)
-                addEdge(11,12,1854)
-                addEdge(11,14,276)
-                addEdge(14,15,1398)
-            } 2 -> {
-                addEdge(11, 10, 464)
-                addEdge(0,1, 623)
-                addEdge(1,9, 609)
-                addEdge(1,2, 1271)
-                addEdge(2, 7, 1420)
-                addEdge(2, 3, 582)
-                addEdge(3,4,  839)
-                addEdge(2, 8, 373)
-                addEdge(2, 5, 313)
-                addEdge(5, 6, 210)
-            }
+            addEdge(0,1,1090)
+            addEdge(1,2,978)
+            addEdge(1,3,484)
+            addEdge(3,4,959)
+            addEdge(4,5,550)
+            addEdge(5,6,572)
+            addEdge(5,7,688)
+            addEdge(5,8,662)
+            addEdge(4,9,526)
+            addEdge(9,10,1847)
+            addEdge(9,12,472)
+            addEdge(9,11,1848)
+            addEdge(10,13,1469)
+            addEdge(10,11,2964)
+            addEdge(11,12,1854)
+            addEdge(11,14,276)
+            addEdge(14,15,1398)
+        } 2 -> {
+            addEdge(11, 10, 464)
+            addEdge(0,1, 623)
+            addEdge(1,9, 609)
+            addEdge(1,2, 1271)
+            addEdge(2, 7, 1420)
+            addEdge(2, 3, 582)
+            addEdge(3,4,  839)
+            addEdge(2, 8, 373)
+            addEdge(2, 5, 313)
+            addEdge(5, 6, 210)
+        }
         }
     }
 
