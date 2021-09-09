@@ -3,8 +3,10 @@ package com.example.codymerebirth_hospitalsearcher
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.os.bundleOf
 import com.example.codymerebirth_hospitalsearcher.databinding.ActivityDistanceBinding
 import com.google.android.gms.maps.model.LatLng
+import java.util.ArrayList
 
 class DistanceActivity : AppCompatActivity() {
 
@@ -19,17 +21,15 @@ class DistanceActivity : AppCompatActivity() {
         val startPoint = intent.getIntExtra("startPoint", 0)
         val finishPoint = intent.getIntExtra("finishPoint", 0)
         val isDijkstra = intent.getBooleanExtra("isDijkstra", true)
+        var listPath: ArrayList<Int>? = null
         var totalDistance:Int = 0
 
 
         distanceBinding.verMapaButton.setOnClickListener {
             val intent = Intent(this, MapActivity::class.java)
-            // TODO se debe enviar una lista con los hospitales que conforman el camino
-            //intent.putExtra(path: List<Hospital>)
+            intent.putIntegerArrayListExtra("listPath", listPath)
             startActivity(intent)
         }
-        //Aqui va el dijstra o el brow-warshal xd
-        //upgradePath(latamHospitals[startPoint]!!, latamHospitals[finishPoint]!!, Distancia obtenida con dijkstra )
 
         createDistances(continente)
 
@@ -37,7 +37,8 @@ class DistanceActivity : AppCompatActivity() {
 
             val dijskstra:Dijkstra = Dijkstra(grafoFloydWarshall, false, false)
             dijskstra.dijkstra(startPoint)
-            totalDistance = dijskstra.printPath(finishPoint)
+            totalDistance = dijskstra.minDistance(finishPoint)
+            listPath = dijskstra.path(finishPoint)
 
         }
 

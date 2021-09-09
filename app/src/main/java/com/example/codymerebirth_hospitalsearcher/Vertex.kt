@@ -7,23 +7,24 @@ class Vertex (val name: Int) : Comparable<Vertex> {
     val neighbours = HashMap<Vertex, Int>()
 
 
-    fun printPath():Int {
+    fun pathVertex():ArrayList<Int> {
+        var vertices = ArrayList<Int>()
 
-        var totalDist:Int = 0
         if (this == previous) {
-            return 0
+            vertices.add(this.name)
         }
         else if (previous == null) {
-            return 100000
+            return ArrayList()
         }
         else {
-
-            totalDist+=previous!!.printPath()
-            totalDist+=dist
-
+            vertices = previous!!.pathVertex()
+            vertices.add(name)
         }
+        return vertices
+    }
 
-        return totalDist
+    fun distanciaAVertice(): Int{
+        return dist
     }
 
     override fun compareTo(other: Vertex): Int {

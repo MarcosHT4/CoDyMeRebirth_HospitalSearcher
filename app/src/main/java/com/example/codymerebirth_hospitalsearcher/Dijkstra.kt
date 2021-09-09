@@ -1,6 +1,7 @@
 package com.example.codymerebirth_hospitalsearcher
 
 import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 class Dijkstra(val edges: Array<IntArray>, val directed: Boolean, val showAllPaths: Boolean = false) {
@@ -69,15 +70,17 @@ class Dijkstra(val edges: Array<IntArray>, val directed: Boolean, val showAllPat
         }
     }
 
-    fun printPath(end: Int):Int {
+    fun minDistance(end: Int):Int {
+        return graph[end]!!.distanciaAVertice()
+    }
 
-        return graph[end]!!.printPath()
-
+    fun path(end: Int): ArrayList<Int>{
+        return graph[end]!!.pathVertex()
     }
 
     private fun printAllPaths() {
         for (v in graph.values) {
-            v.printPath()
+            v.pathVertex()
             println()
         }
         println()
