@@ -48,6 +48,8 @@ class DistanceActivity : AppCompatActivity() {
                 1->totalDistance = FloydWarshall.doCalcs(grafoFloydWarshall,16, startPoint, finishPoint)
                 2->totalDistance = FloydWarshall.doCalcs(grafoFloydWarshall,12, startPoint, finishPoint)
             }
+
+            listPath = FloydWarshall.printResult(startPoint, finishPoint)
         }
 
         when (continente) {
@@ -69,19 +71,19 @@ class DistanceActivity : AppCompatActivity() {
     fun createDistances(continente: Int){
         when(continente){
             0 -> {
-                addEdge(9, 8, 1400)
-                addEdge(8,7,1103)
-                addEdge(7, 6, 1802)
-                addEdge(6, 0, 2033)
-                addEdge(0, 1, 1427)
-                addEdge(1, 2, 1344)
-                addEdge(6, 5, 3286)
-                addEdge(5, 4, 1407)
-                addEdge(4, 2, 593)
-                addEdge(2, 3, 2903)
-                addEdge(3, 10, 2755)
-                addEdge(10, 11, 444)
-                addEdge(11, 12, 336)
+             addEdge(9, 8, 1400)
+             addEdge(8,7,1103)
+             addEdge(7, 6, 1802)
+             addEdge(6, 0, 2033)
+             addEdge(0, 1, 1427)
+             addEdge(1, 2, 1344)
+             addEdge(6, 5, 3286)
+             addEdge(5, 4, 1407)
+             addEdge(4, 2, 593)
+             addEdge(2, 3, 2903)
+             addEdge(3, 10, 2755)
+             addEdge(10, 11, 444)
+             addEdge(11, 12, 336)
             } 1 -> {
             addEdge(0,1,1090)
             addEdge(1,2,978)

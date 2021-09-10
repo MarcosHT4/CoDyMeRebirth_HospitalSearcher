@@ -1,17 +1,37 @@
 package com.example.codymerebirth_hospitalsearcher
 
+
+
 object FloydWarshall {
+
+    lateinit var dist: Array<IntArray>
+    lateinit var next: Array<IntArray>
+
+
 
     fun doCalcs(weights:Array<IntArray>, nVertices:Int, startPoint:Int, finishPoint:Int): Int{
 
-        val dist = Array(nVertices) {
+        dist = Array(nVertices) {
 
             IntArray(nVertices) {
 
                 1000000
 
             }
+        }
 
+
+
+        for(i in 0..weights.size-1) {
+
+            for (j in 0..weights.get(i).size - 1) {
+
+                if (weights[i][j] != 0) {
+
+                    dist[i][j] = weights[i][j]
+
+                }
+            }
         }
 
         for(i in 0..weights.size-1) {
@@ -28,13 +48,13 @@ object FloydWarshall {
 
         }
 
-        val next = Array(nVertices) {
+        next = Array(nVertices) {
             IntArray(nVertices)
         }
         for(i in 0 until next.size) {
             for(j in 0 until next.size) {
                 if(i!=j) {
-                    next[i][j] = j+1
+                    next[i][j] = j
                 }
             }
         }
@@ -57,30 +77,32 @@ object FloydWarshall {
             }
 
         }
-        var minDist:Int = printResult(dist, next, startPoint, finishPoint)
-        return minDist
+
+        return dist[startPoint][finishPoint]
     }
 
-    private fun printResult(dist: Array<IntArray>, next: Array<IntArray>, startPoint: Int, finishPoint: Int): Int {
+    fun printResult(startPoint:Int, finishPoint: Int): ArrayList<Int> {
 
         var u: Int
         var v: Int
         var path: String
-        println("pair     dist    path")
-        for (i in 0 until next.size) {
+        var listHospitals:ArrayList<Int> = ArrayList()
 
-            for (j in 0 until next.size) {
 
-                if (i != j) {
+        u = startPoint
+        v = finishPoint
 
-                    u = i
-                    v = j
-                    if (u == startPoint && v == finishPoint) {
-                        return dist[i][j]
-                    }
-                }
-            }
-        }
-        return 0
+        do {
+            listHospitals.add(u)
+            u = next[u][v]
+
+
+        } while (u != v)
+
+        listHospitals.add(v)
+
+        return listHospitals
     }
+
+
 }
