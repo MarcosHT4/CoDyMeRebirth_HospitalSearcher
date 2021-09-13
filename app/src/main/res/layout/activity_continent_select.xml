@@ -26,13 +26,13 @@
         android:id="@+id/buttonSelectLatam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
+        android:foregroundTint="#4CAF50"
         android:text="LatinoAmérica"
         app:layout_constraintBottom_toTopOf="@+id/buttonSelectEastEurope"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"/>
 
     <Button
         android:id="@+id/buttonSelectEastEurope"
@@ -42,7 +42,6 @@
         android:text="Europa del Este"
         app:layout_constraintBottom_toTopOf="@+id/buttonSelectWestEurope"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonSelectLatam" />
 
@@ -51,10 +50,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
+        android:layout_marginBottom="40dp"
         android:text="Europa del Oeste"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonSelectEastEurope" />
 </androidx.constraintlayout.widget.ConstraintLayout>
