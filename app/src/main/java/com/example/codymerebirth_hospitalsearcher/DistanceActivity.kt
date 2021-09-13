@@ -47,6 +47,11 @@ class DistanceActivity : AppCompatActivity() {
                 0->totalDistance = FloydWarshall.doCalcs(grafoFloydWarshall,19, startPoint,finishPoint)
                 1->totalDistance = FloydWarshall.doCalcs(grafoFloydWarshall,16, startPoint, finishPoint)
                 2->totalDistance = FloydWarshall.doCalcs(grafoFloydWarshall,12, startPoint, finishPoint)
+                else -> {
+
+                    totalDistance = FloydWarshall.doCalcs(grafoFloydWarshall,5, startPoint, finishPoint)
+
+                }
             }
 
             listPath = FloydWarshall.printResult(startPoint, finishPoint)
@@ -56,6 +61,14 @@ class DistanceActivity : AppCompatActivity() {
             0-> upgradePath(latamHospitals[startPoint]!!, latamHospitals[finishPoint]!!, totalDistance)
             1-> upgradePath(eastEuropeHospital[startPoint]!!, eastEuropeHospital[finishPoint]!!, totalDistance)
             2-> upgradePath(westEuropeHospital[startPoint]!!, westEuropeHospital[finishPoint]!!, totalDistance)
+            3-> upgradePath(exampleHospital1Dijkstra[startPoint]!!, exampleHospital1Dijkstra[finishPoint]!!, totalDistance)
+            4-> upgradePath(exampleHospital2Dijkstra[startPoint]!!, exampleHospital2Dijkstra[finishPoint]!!, totalDistance)
+            5-> upgradePath(exampleHospital3Dijkstra[startPoint]!!, exampleHospital3Dijkstra[finishPoint]!!, totalDistance)
+            6-> upgradePath(exampleHospital4Dijkstra[startPoint]!!, exampleHospital4Dijkstra[finishPoint]!!, totalDistance)
+            7-> upgradePath(exampleHospital1FloydWarshall[startPoint]!!, exampleHospital1FloydWarshall[finishPoint]!!, totalDistance)
+            8-> upgradePath(exampleHospital2FloydWarshall[startPoint]!!, exampleHospital2FloydWarshall[finishPoint]!!, totalDistance)
+            9-> upgradePath(exampleHospital3FloydWarshall[startPoint]!!, exampleHospital3FloydWarshall[finishPoint]!!, totalDistance)
+            10-> upgradePath(exampleHospital4FloydWarshall[startPoint]!!, exampleHospital4FloydWarshall[finishPoint]!!, totalDistance)
         }
 
 
@@ -113,6 +126,65 @@ class DistanceActivity : AppCompatActivity() {
             addEdge(2, 8, 373)
             addEdge(2, 5, 313)
             addEdge(5, 6, 210)
+        } 3 -> {
+
+            addEdge(0,1,600)
+            addEdge(0,2,432)
+            addEdge(2,4,20)
+            addEdge(0,3,103)
+
+        } 4 -> {
+
+            addEdge(0,1,60)
+            addEdge(1,2,490)
+            addEdge(0,3,620)
+            addEdge(3,4,3002)
+        } 5 -> {
+
+            addEdge(0,1,21)
+            addEdge(1,2,45)
+            addEdge(0,3,275)
+            addEdge(3,4,534)
+
+        } 6 ->{
+
+            addEdge(0,2,5691)
+            addEdge(0,4,7855)
+            addEdge(2, 3, 3373)
+            addEdge(3, 1, 4528)
+            addEdge(1, 4, 6816)
+
+
+        }7 -> {
+
+            addEdge(0,1,700)
+            addEdge(1,2,50)
+            addEdge(1,3,150)
+            addEdge(1,4,300)
+
+        } 8 -> {
+
+            addEdge(0,1,10)
+            addEdge(1,3,75)
+            addEdge(3,4,242)
+            addEdge(1,2,501)
+
+
+        } 9 -> {
+
+            addEdge(0,1,563)
+            addEdge(1,2,248)
+            addEdge(1,4,875)
+            addEdge(2,3,654)
+
+        } 10 -> {
+
+            addEdge(2, 3, 2793)
+            addEdge(2, 1, 2893)
+            addEdge(1, 0, 11290)
+            addEdge(1, 4, 11181)
+            addEdge(0, 4, 4632)
+
         }
         }
     }
@@ -125,109 +197,7 @@ class DistanceActivity : AppCompatActivity() {
 }
 
 
-//Latinoamerica
 
-val hospitalSucre = Hospital("Hospital Santa Barbara", 0, LatLng(-19.044638688080493, -65.26289977359298))
-val hospitalCaracas = Hospital("Hospital de Clinicas Caracas", 9, LatLng(10.510392244048777, -66.89886880000002))
-val hospitalBuenosAires = Hospital("Hospital Italiano de Buenos Aires", 4, LatLng(-34.60615526599895, -58.42587738679744))
-val hospitalBogota = Hospital("Hospital Universitario Nacional de Colombia", 8, LatLng(4.648851154530483, -74.0958786891307))
-val hospitalQuito = Hospital("Hospital Vozandes Quito", 7, LatLng(-0.17266468170644111, -78.48944501611999))
-val hospitalLima = Hospital("Hospital Nacional Arzobispo Loayza", 6, LatLng(-12.049894835206626, -77.04329160256935))
-val hospitalAsuncion = Hospital("Hospital Universitario Ntra. Sra. de Asunción", 1, LatLng(-25.29245087720329, -57.56199163305948))
-val hospitalSantiago = Hospital("Hospital Dr. Luis Tisné Brousse", 5, LatLng(-33.50062824284426, -70.57905180031733))
-val hospitalMontevideo = Hospital("Hospital Británico de Montevideo", 2, LatLng(-34.894289082319425, -56.16285437329951))
-val hospitalBrasilia = Hospital("Hospital Alvorada Brasilia", 3, LatLng(-15.813129246960239, -47.91250150252596))
-val hospitalGeorgetown = Hospital("Georgetown Public Hospital Corporation", 10, LatLng(6.815718116762575, -58.157052933055304))
-val hospitalParamaribo = Hospital("Academic Hospital Paramaribo", 11, LatLng(5.836922274316439, -55.18308396028875))
-val hospitalCayena = Hospital("Centro Hospitalario Andrée-Rosemon", 12, LatLng(4.923919567336988, -52.320488600763234))
-
-//Europa del este
-
-
-val hospitalMoscu = Hospital("Hospital clinico central", 0, LatLng(55.75007428923332, 37.38975771534646))
-val hospitalHelsinki = Hospital("Surgical Hospital", 1, LatLng(60.16161953320194, 24.948867722771716))
-val hospitalOslo = Hospital("Hôpital national norvégien", 2, LatLng(59.95579743610828, 10.701196370278698))
-val hospitalEstocolmo = Hospital("Hospital de San Göran", 3, LatLng(59.48086427743339, 18.059729196907757))
-val hospitalMinsk = Hospital("National Hospital of Belarus' Interior Ministry", 4, LatLng(54.64466763858227, 27.5106429809813))
-val hospitalVarsovia = Hospital("American Clinic Warsaw", 5, LatLng(52.15515540391875, 21.077973725722103))
-val hospitalBerlin = Hospital("Alexianer St. Hedwig Hospital", 6, LatLng(52.871787371307256, 13.340160586250244))
-val hospitalPraga = Hospital("General University Hospital in Prague", 7, LatLng(50.07333581333177, 14.420886253960607))
-val hospitalBratislava = Hospital("Hospital Bratislava Ružinov", 8, LatLng(48.47581700294231, 17.1605481190893))
-val hospitalKiev = Hospital("Kyiv City Clinical Hospital", 9, LatLng(50.970627878721245, 30.41443955096359))
-val hospitalBudapest = Hospital("Szent Gellért Magánklinika Budapest", 10, LatLng(47.707550253211785, 18.613309288842167))
-val hospitalTiflis = Hospital("German Hospital", 11, LatLng(41.84625652975446, 44.473796144840954))
-val hospitalChisinau = Hospital("Medpark International Hospital", 12, LatLng(46.861595502936744, 28.914024252787808))
-val hospitalAtenas = Hospital("Koutanitis, Nik. B., Galinos Polyiatreia S.A.", 13, LatLng(37.96059088783629, 23.737585169307067))
-val hospitalErevan = Hospital("Heratsi Hospital Complex", 14, LatLng(40.48659368546972, 44.008989670419645))
-val hospitalAnkara = Hospital("Memorial Ankara Hastanesi", 15, LatLng(40.077413596198284, 31.826482715130485))
-
-
-//Europa del Oeste
-
-
-val hospitalLisboa = Hospital("Centro Hospitalar Universitário de Lisboa Central - Hospital de São José", 0, LatLng(38.743740845318676, -9.148935812833871))
-val hospitalMadrid = Hospital("Hospital de La Princesa", 1, LatLng(41.13111378757351, -3.7657087665523745))
-val hospitalParis = Hospital("Lariboisière Hospital AP-HP", 2, LatLng(49.0242468937122, 2.236030216820476))
-val hospitalBerna = Hospital("Inselspital", 3, LatLng(46.94756056987751, 7.424605553960608))
-val hospitalViena = Hospital("Hospital general de Viena", 4, LatLng(50.65914784863094, 14.827293706081425))
-val hospitalBruselas = Hospital("Instituto Jules Bordet", 5, LatLng(50.833507672949644, 4.347087325361968))
-val hospitalAmsterdam = Hospital("OLVG, location Spuistraat", 6, LatLng(52.37118763534204, 4.889372025419725))
-val hospitalRoma = Hospital("Rome American Hospital", 7, LatLng(41.90003220640084, 12.602381055745447))
-val hospitalLuxemburgo = Hospital("Hospital materno Gran Duquesa Charlotte", 8, LatLng(49.617597294338694, 6.098589640663677))
-val hospitalAndorraLaVella = Hospital("Nostra Senyora de Meritxell Hospital", 9, LatLng(42.51145937049988, 1.5336092980918983))
-val hospitalLondres = Hospital("Royal London Hospital", 10, LatLng(51.517508455928564, -0.06000350159278706))
-val hospitalDublin = Hospital("Hospital materno nacional de Dublín", 11, LatLng(53.33990050330571, -6.245567788033456))
-
-
-val latamHospitals: HashMap<Int, Hospital> = hashMapOf(
-    0 to hospitalSucre,
-    1 to hospitalAsuncion,
-    2 to hospitalMontevideo,
-    3 to hospitalBrasilia,
-    4 to hospitalBuenosAires,
-    5 to hospitalSantiago,
-    6 to hospitalLima,
-    7 to hospitalQuito,
-    8 to hospitalBogota,
-    9 to hospitalCaracas,
-    10 to hospitalGeorgetown,
-    11 to hospitalParamaribo,
-    12 to hospitalCayena
-)
-
-val eastEuropeHospital:HashMap<Int, Hospital> = hashMapOf(
-    0 to hospitalMoscu,
-    1 to hospitalHelsinki,
-    2 to hospitalOslo,
-    3 to hospitalEstocolmo,
-    4 to hospitalMinsk,
-    5 to hospitalVarsovia,
-    6 to hospitalBerlin,
-    7 to hospitalPraga,
-    8 to hospitalBratislava,
-    9 to hospitalKiev,
-    10 to hospitalBudapest,
-    11 to hospitalTiflis,
-    12 to hospitalChisinau,
-    13 to hospitalAtenas,
-    14 to hospitalErevan,
-    15 to hospitalAnkara
-)
-
-val westEuropeHospital:HashMap<Int, Hospital> = hashMapOf(
-    0 to hospitalLisboa,
-    1 to hospitalMadrid,
-    2 to hospitalParis,
-    3 to hospitalBerna,
-    4 to hospitalViena,
-    5 to hospitalBruselas,
-    6 to hospitalAmsterdam,
-    7 to hospitalRoma,
-    8 to hospitalLuxemburgo,
-    9 to hospitalAndorraLaVella,
-    10 to hospitalLondres,
-    11 to hospitalDublin
-)
 
 
 

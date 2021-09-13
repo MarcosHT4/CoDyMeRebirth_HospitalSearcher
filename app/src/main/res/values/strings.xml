@@ -49,4 +49,85 @@
         <item>Londres</item>
         <item>Dublin</item>
     </string-array>
+
+    <string-array name="ejemploUnoDijkstra">
+
+        <item>Palestina</item>
+        <item>Imperio Romano</item>
+        <item>Rodesia</item>
+        <item>Zanzibar</item>
+        <item>Vietnam del Sur</item>
+
+    </string-array>
+
+    <string-array name="ejemploUnoFloydWarshall">
+
+        <item>Union Sovietica</item>
+        <item>Corea del Norte</item>
+        <item>Pemba</item>
+        <item>Mozambique</item>
+        <item>Darfur</item>
+
+    </string-array>
+    
+    <string-array name="ejemploDosDijkstra">
+
+        <item>Imperio Thalia</item>
+        <item>Dinastia Koteron</item>
+        <item>Imperio Tribbitus</item>
+        <item>Dinastia Criten</item>
+        <item>Dinastia Teonem</item>
+
+    </string-array>
+    
+    <string-array name="ejemploDosFloydWarshall">
+
+        <item>Irania</item>
+        <item>Lotus</item>
+        <item>Ugevaria</item>
+        <item>Dinada</item>
+        <item>Atoseo</item>
+
+    </string-array>
+
+    <string-array name="ejemploTresDijkstra">
+
+        <item>Rodemy</item>
+        <item>Atlantis</item>
+        <item>Ciudadela Olimpica</item>
+        <item>Ciudad Griega</item>
+        <item>Crisa</item>
+
+    </string-array>
+
+    <string-array name="ejemploTresFloydWarshall">
+
+        <item>Slug Giant</item>
+        <item>Slug Flyer</item>
+        <item>Lemor</item>
+        <item>Servil</item>
+        <item>Atrolug</item>
+
+    </string-array>
+
+    <string-array name="ejemploCuatroDijkstra">
+
+        <item>Groenlandia</item>
+        <item>Hielolandia</item>
+        <item>Area 51</item>
+        <item>Illuminatilandia</item>
+        <item>Curasao</item>
+
+    </string-array>
+
+    <string-array name="ejemploCuatroFloydWarshall">
+
+        <item>Triangulo de las Bermudas</item>
+        <item>Uganda</item>
+        <item>Egipto</item>
+        <item>Suiza</item>
+        <item>Bolivia</item>
+
+    </string-array>
+
 </resources>

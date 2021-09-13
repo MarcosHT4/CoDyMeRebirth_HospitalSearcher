@@ -127,7 +127,208 @@ class PathSelectionActivity : AppCompatActivity() {
             hospitalNumber.put("Dublin", 11)
 
 
+        }else if(continent == 3){
+            ArrayAdapter.createFromResource(
+                this,
+                R.array.ejemploUnoDijkstra,
+                android.R.layout.simple_spinner_dropdown_item
+            ).also {adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerStartPoint?.adapter = adapter
+            }
+            ArrayAdapter.createFromResource(
+                this,
+                R.array.ejemploUnoDijkstra,
+                android.R.layout.simple_spinner_dropdown_item
+            ).also {adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerFinishPoint?.adapter = adapter
+            }
+
+            hospitalNumber.put("Palestina", 0)
+            hospitalNumber.put("Imperio Romano", 1)
+            hospitalNumber.put("Rodesia", 2)
+            hospitalNumber.put("Zanzibar", 3)
+            hospitalNumber.put("Vietnam del Sur", 4)
+
+
+        }else if(continent == 4){
+            ArrayAdapter.createFromResource(
+                this,
+                R.array.ejemploDosDijkstra,
+                android.R.layout.simple_spinner_dropdown_item
+            ).also {adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerStartPoint?.adapter = adapter
+            }
+            ArrayAdapter.createFromResource(
+                this,
+                R.array.ejemploDosDijkstra,
+                android.R.layout.simple_spinner_dropdown_item
+            ).also {adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerFinishPoint?.adapter = adapter
+            }
+
+            hospitalNumber.put("Imperio Thalia", 0)
+            hospitalNumber.put("Dinastia Koteron", 1)
+            hospitalNumber.put("Imperio Tribbitus", 2)
+            hospitalNumber.put("Dinastia Criten", 3)
+            hospitalNumber.put("Dinastia Teonem", 4)
+
+
+        }else if(continent == 5){
+            ArrayAdapter.createFromResource(
+                this,
+                R.array.ejemploTresDijkstra,
+                android.R.layout.simple_spinner_dropdown_item
+            ).also {adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerStartPoint?.adapter = adapter
+            }
+            ArrayAdapter.createFromResource(
+                this,
+                R.array.ejemploTresDijkstra,
+                android.R.layout.simple_spinner_dropdown_item
+            ).also {adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerFinishPoint?.adapter = adapter
+            }
+
+            hospitalNumber.put("Rodemy", 0)
+            hospitalNumber.put("Atlantis", 1)
+            hospitalNumber.put("Ciudadela Olimpica", 2)
+            hospitalNumber.put("Ciudad Griega", 3)
+            hospitalNumber.put("Crisa", 4)
+
+
+        }else if(continent == 6){
+            ArrayAdapter.createFromResource(
+                this,
+                R.array.ejemploCuatroDijkstra,
+                android.R.layout.simple_spinner_dropdown_item
+            ).also {adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerStartPoint?.adapter = adapter
+            }
+            ArrayAdapter.createFromResource(
+                this,
+                R.array.ejemploCuatroDijkstra,
+                android.R.layout.simple_spinner_dropdown_item
+            ).also {adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerFinishPoint?.adapter = adapter
+            }
+
+            hospitalNumber.put("Groenlandia", 0)
+            hospitalNumber.put("Hielolandia", 1)
+            hospitalNumber.put("Area 51", 2)
+            hospitalNumber.put("Illuminatilandia", 3)
+            hospitalNumber.put("Curasao", 4)
+
+
+        }else if(continent == 7){
+            ArrayAdapter.createFromResource(
+                this,
+                R.array.ejemploUnoFloydWarshall,
+                android.R.layout.simple_spinner_dropdown_item
+            ).also {adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerStartPoint?.adapter = adapter
+            }
+            ArrayAdapter.createFromResource(
+                this,
+                R.array.ejemploUnoFloydWarshall,
+                android.R.layout.simple_spinner_dropdown_item
+            ).also {adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerFinishPoint?.adapter = adapter
+            }
+
+            hospitalNumber.put("Union Sovietica", 0)
+            hospitalNumber.put("Corea del Norte", 1)
+            hospitalNumber.put("Pemba", 2)
+            hospitalNumber.put("Mozambique", 3)
+            hospitalNumber.put("Darfur", 4)
+
+
+        }else if(continent == 8){
+            ArrayAdapter.createFromResource(
+                this,
+                R.array.ejemploDosFloydWarshall,
+                android.R.layout.simple_spinner_dropdown_item
+            ).also {adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerStartPoint?.adapter = adapter
+            }
+            ArrayAdapter.createFromResource(
+                this,
+                R.array.ejemploDosFloydWarshall,
+                android.R.layout.simple_spinner_dropdown_item
+            ).also {adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerFinishPoint?.adapter = adapter
+            }
+
+            hospitalNumber.put("Irania", 0)
+            hospitalNumber.put("Lotus", 1)
+            hospitalNumber.put("Ugevaria", 2)
+            hospitalNumber.put("Dinada", 3)
+            hospitalNumber.put("Atoseo", 4)
+
+
+        }else if(continent == 9){
+            ArrayAdapter.createFromResource(
+                this,
+                R.array.ejemploTresFloydWarshall,
+                android.R.layout.simple_spinner_dropdown_item
+            ).also {adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerStartPoint?.adapter = adapter
+            }
+            ArrayAdapter.createFromResource(
+                this,
+                R.array.ejemploTresFloydWarshall,
+                android.R.layout.simple_spinner_dropdown_item
+            ).also {adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerFinishPoint?.adapter = adapter
+            }
+
+            hospitalNumber.put("Slug Giant", 0)
+            hospitalNumber.put("Slug Flyer", 1)
+            hospitalNumber.put("Lemor", 2)
+            hospitalNumber.put("Servil", 3)
+            hospitalNumber.put("Atrolug", 4)
+
+
+        }else if(continent == 10){
+            ArrayAdapter.createFromResource(
+                this,
+                R.array.ejemploCuatroFloydWarshall,
+                android.R.layout.simple_spinner_dropdown_item
+            ).also {adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerStartPoint?.adapter = adapter
+            }
+            ArrayAdapter.createFromResource(
+                this,
+                R.array.ejemploCuatroFloydWarshall,
+                android.R.layout.simple_spinner_dropdown_item
+            ).also {adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                spinnerFinishPoint?.adapter = adapter
+            }
+
+            hospitalNumber.put("Triangulo de las Bermudas", 0)
+            hospitalNumber.put("Uganda", 1)
+            hospitalNumber.put("Egipto", 2)
+            hospitalNumber.put("Suiza", 3)
+            hospitalNumber.put("Bolivia", 4)
+
+
         }
+
 
 
 

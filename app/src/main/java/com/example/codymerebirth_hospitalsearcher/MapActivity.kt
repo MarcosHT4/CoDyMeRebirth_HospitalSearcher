@@ -38,6 +38,14 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             0 -> drawPath(path, latamHospitals)
             1 -> drawPath(path, eastEuropeHospital)
             2 -> drawPath(path, westEuropeHospital)
+            3 -> drawPath(path, exampleHospital1Dijkstra)
+            4 -> drawPath(path, exampleHospital2Dijkstra)
+            5 -> drawPath(path, exampleHospital3Dijkstra)
+            6 -> drawPath(path, exampleHospital4Dijkstra)
+            7 -> drawPath(path, exampleHospital1FloydWarshall)
+            8 -> drawPath(path, exampleHospital2FloydWarshall)
+            9 -> drawPath(path, exampleHospital3FloydWarshall)
+            10 -> drawPath(path, exampleHospital4FloydWarshall)
         }
 
     }
