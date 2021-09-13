@@ -3,6 +3,7 @@ package com.example.codymerebirth_hospitalsearcher
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import com.example.codymerebirth_hospitalsearcher.databinding.ActivityDistanceBinding
 import com.google.android.gms.maps.model.LatLng
@@ -26,10 +27,16 @@ class DistanceActivity : AppCompatActivity() {
 
 
         distanceBinding.verMapaButton.setOnClickListener {
-            val intent = Intent(this, MapActivity::class.java)
-            intent.putIntegerArrayListExtra("listPath", listPath)
-            intent.putExtra("continente" , continente)
-            startActivity(intent)
+            if(totalDistance == 0) {
+                Toast.makeText(this, "Ya estas en el destino LA...", Toast.LENGTH_LONG).show()
+            }else if(totalDistance in 1..99999){
+                val intent = Intent(this, MapActivity::class.java)
+                intent.putIntegerArrayListExtra("listPath", listPath)
+                intent.putExtra("continente", continente)
+                startActivity(intent)
+            }else{
+                Toast.makeText(this, "No hay camino LA...", Toast.LENGTH_LONG).show()
+            }
         }
 
         createDistances(continente)
@@ -56,6 +63,9 @@ class DistanceActivity : AppCompatActivity() {
 
             listPath = FloydWarshall.printResult(startPoint, finishPoint)
         }
+        if(startPoint == finishPoint){
+            totalDistance = 0
+        }
 
         when (continente) {
             0-> upgradePath(latamHospitals[startPoint]!!, latamHospitals[finishPoint]!!, totalDistance)
@@ -78,7 +88,11 @@ class DistanceActivity : AppCompatActivity() {
     fun upgradePath(origen: Hospital, destino: Hospital, distancia: Int){
         distanceBinding.origen.text = origen.name
         distanceBinding.destino.text = destino.name
-        distanceBinding.distanciaMinima.text = distancia.toString()
+        if(distancia < 100000) {
+            distanceBinding.distanciaMinima.text = distancia.toString()
+        }else{
+            distanceBinding.distanciaMinima.text = "No hay camino disponible"
+        }
 
     }
     fun createDistances(continente: Int){
