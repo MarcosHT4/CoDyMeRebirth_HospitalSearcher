@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.codymerebirth_hospitalsearcher">
+    package="com.pro.codymerebirth_hospitalsearcher">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,28 +12,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CoDyMeRebirth_HospitalSearcher">
         <activity
-            android:name=".DistanceActivity"
+            android:name="com.pro.codymerebirth_hospitalsearcher.DistanceActivity"
             android:exported="true" />
         <activity
-            android:name=".ExampleSelectionActivity"
+            android:name="com.pro.codymerebirth_hospitalsearcher.ExampleSelectionActivity"
             android:exported="true" />
         <activity
-            android:name=".PathSelectionActivity"
+            android:name="com.pro.codymerebirth_hospitalsearcher.PathSelectionActivity"
             android:exported="true" />
         <activity
-            android:name=".MapActivity"
+            android:name="com.pro.codymerebirth_hospitalsearcher.MapActivity"
             android:exported="true" />
         <activity
-            android:name=".ContinentSelectActivity"
+            android:name="com.pro.codymerebirth_hospitalsearcher.ContinentSelectActivity"
             android:exported="true" />
         <activity
-            android:name=".MainMenuActivity"
+            android:name="com.pro.codymerebirth_hospitalsearcher.MainMenuActivity"
             android:exported="true" />
         <activity
-            android:name=".SelectAlgorithmActivity"
+            android:name="com.pro.codymerebirth_hospitalsearcher.SelectAlgorithmActivity"
             android:exported="true" />
         <activity
-            android:name=".SplashScreenActivity"
+            android:name="com.pro.codymerebirth_hospitalsearcher.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

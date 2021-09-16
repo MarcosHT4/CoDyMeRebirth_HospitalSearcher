@@ -1,11 +1,11 @@
-package com.example.codymerebirth_hospitalsearcher
+package com.pro.codymerebirth_hospitalsearcher
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.os.bundleOf
-import com.example.codymerebirth_hospitalsearcher.databinding.ActivityDistanceBinding
+import com.pro.codymerebirth_hospitalsearcher.databinding.ActivityDistanceBinding
 import com.google.android.gms.maps.model.LatLng
 import java.util.ArrayList
 
@@ -43,7 +43,7 @@ class DistanceActivity : AppCompatActivity() {
 
         if(isDijkstra) {
 
-            val dijskstra:Dijkstra = Dijkstra(grafoFloydWarshall, false, false)
+            val dijskstra: Dijkstra = Dijkstra(grafoFloydWarshall, false, false)
             dijskstra.dijkstra(startPoint)
             totalDistance = dijskstra.minDistance(finishPoint)
             listPath = dijskstra.path(finishPoint)
@@ -51,12 +51,16 @@ class DistanceActivity : AppCompatActivity() {
         } else {
             when(continente){
 
-                0->totalDistance = FloydWarshall.doCalcs(grafoFloydWarshall,19, startPoint,finishPoint)
-                1->totalDistance = FloydWarshall.doCalcs(grafoFloydWarshall,16, startPoint, finishPoint)
-                2->totalDistance = FloydWarshall.doCalcs(grafoFloydWarshall,12, startPoint, finishPoint)
+                0->totalDistance =
+                    FloydWarshall.doCalcs(grafoFloydWarshall, 19, startPoint, finishPoint)
+                1->totalDistance =
+                    FloydWarshall.doCalcs(grafoFloydWarshall, 16, startPoint, finishPoint)
+                2->totalDistance =
+                    FloydWarshall.doCalcs(grafoFloydWarshall, 12, startPoint, finishPoint)
                 else -> {
 
-                    totalDistance = FloydWarshall.doCalcs(grafoFloydWarshall,5, startPoint, finishPoint)
+                    totalDistance =
+                        FloydWarshall.doCalcs(grafoFloydWarshall, 5, startPoint, finishPoint)
 
                 }
             }

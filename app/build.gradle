@@ -10,7 +10,7 @@ android {
     compileSdk 30
 
     defaultConfig {
-        applicationId "com.example.codymerebirth_hospitalsearcher"
+        applicationId "com.pro.codymerebirth_hospitalsearcher"
         minSdk 24
         targetSdk 30
         versionCode 1
@@ -36,6 +36,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    dataBinding{
+        enabled = true
+    }
 }
 
 dependencies {
@@ -48,4 +51,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     //API de google maps
     implementation 'com.google.android.gms:play-services-maps:17.0.1'
+    kapt 'com.android.databinding:compiler:3.1.0'
+
 }

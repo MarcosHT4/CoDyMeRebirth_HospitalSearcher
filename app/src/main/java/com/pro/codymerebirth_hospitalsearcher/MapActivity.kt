@@ -1,9 +1,10 @@
-package com.example.codymerebirth_hospitalsearcher
+package com.pro.codymerebirth_hospitalsearcher
 
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.codymerebirth_hospitalsearcher.databinding.ActivityMapBinding
+import com.pro.codymerebirth_hospitalsearcher.R
+import com.pro.codymerebirth_hospitalsearcher.databinding.ActivityMapBinding
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.*
 
@@ -77,7 +78,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
 
-    private fun drawPath(listPath: ArrayList<Int>, hospitals: HashMap<Int,Hospital>){
+    private fun drawPath(listPath: ArrayList<Int>, hospitals: HashMap<Int, Hospital>){
         val listLatLng = ArrayList<LatLng>()
 
         addMarker(hospitals[listPath[0]]!!, BitmapDescriptorFactory.HUE_GREEN)

@@ -1,4 +1,4 @@
-package com.example.codymerebirth_hospitalsearcher
+package com.pro.codymerebirth_hospitalsearcher
 
 import java.util.*
 import kotlin.collections.ArrayList

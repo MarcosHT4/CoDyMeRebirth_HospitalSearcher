@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".DistanceActivity">
+    tools:context="com.pro.codymerebirth_hospitalsearcher.DistanceActivity">
 
     <Button
         android:id="@+id/verMapaButton"

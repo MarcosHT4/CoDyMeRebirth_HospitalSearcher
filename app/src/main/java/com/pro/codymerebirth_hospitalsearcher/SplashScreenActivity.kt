@@ -1,10 +1,11 @@
-package com.example.codymerebirth_hospitalsearcher
+package com.pro.codymerebirth_hospitalsearcher
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import com.pro.codymerebirth_hospitalsearcher.R
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

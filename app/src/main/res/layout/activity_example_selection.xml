@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".ExampleSelectionActivity">
+    tools:context="com.pro.codymerebirth_hospitalsearcher.ExampleSelectionActivity">
 
     <TextView
         android:id="@+id/textView4"

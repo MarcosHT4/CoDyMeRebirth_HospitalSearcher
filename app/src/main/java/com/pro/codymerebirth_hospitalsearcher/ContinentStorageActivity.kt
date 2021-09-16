@@ -1,4 +1,4 @@
-package com.example.codymerebirth_hospitalsearcher
+package com.pro.codymerebirth_hospitalsearcher
 
 import com.google.android.gms.maps.model.LatLng
 
@@ -180,7 +180,7 @@ val westEuropeHospital:HashMap<Int, Hospital> = hashMapOf(
     11 to hospitalDublin
 )
 
-val exampleHospital1Dijkstra:HashMap<Int,Hospital> = hashMapOf(
+val exampleHospital1Dijkstra:HashMap<Int, Hospital> = hashMapOf(
 
     0 to hospitalPalestina,
     1 to hospitalImperioRomano,
@@ -215,7 +215,7 @@ val exampleHospital4Dijkstra:HashMap<Int, Hospital> = hashMapOf(
     4 to hospitalCurazao
 )
 
-val exampleHospital1FloydWarshall:HashMap<Int,Hospital> = hashMapOf(
+val exampleHospital1FloydWarshall:HashMap<Int, Hospital> = hashMapOf(
 
     0 to hospitalUnionSovietica,
     1 to hospitalCoreaDelNorte,

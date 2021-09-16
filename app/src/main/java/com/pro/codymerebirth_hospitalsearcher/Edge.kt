@@ -1,3 +1,3 @@
-package com.example.codymerebirth_hospitalsearcher
+package com.pro.codymerebirth_hospitalsearcher
 
 data class Edge (val v1: Int, val v2: Int, val dist: Int)

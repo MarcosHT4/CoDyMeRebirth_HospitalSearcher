@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:backgroundTint="@color/background"
-    tools:context=".MainMenuActivity">
+    tools:context="com.pro.codymerebirth_hospitalsearcher.MainMenuActivity">
 
     <ImageView
         android:id="@+id/imageView2"

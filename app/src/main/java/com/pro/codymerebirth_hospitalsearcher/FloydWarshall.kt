@@ -1,4 +1,4 @@
-package com.example.codymerebirth_hospitalsearcher
+package com.pro.codymerebirth_hospitalsearcher
 
 
 
@@ -65,7 +65,7 @@ object FloydWarshall {
 
                 for(j in 0 until nVertices) {
 
-                    if(dist[i][k]+dist[k][j]<dist[i][j] ) {
+                    if(dist[i][k]+ dist[k][j]< dist[i][j] ) {
 
                         dist[i][j] = dist[i][k] + dist[k][j]
                         next[i][j] = next[i][k]
@@ -84,9 +84,9 @@ object FloydWarshall {
     fun printResult(startPoint:Int, finishPoint: Int): ArrayList<Int> {
 
         var u: Int
-        var v: Int
-        var path: String
-        var listHospitals:ArrayList<Int> = ArrayList()
+        val v: Int
+        //var path: String
+        val listHospitals:ArrayList<Int> = ArrayList()
 
 
         u = startPoint

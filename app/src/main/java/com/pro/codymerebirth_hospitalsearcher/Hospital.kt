@@ -1,4 +1,4 @@
-package com.example.codymerebirth_hospitalsearcher
+package com.pro.codymerebirth_hospitalsearcher
 
 import com.google.android.gms.maps.model.LatLng
 
